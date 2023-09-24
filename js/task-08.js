@@ -1,19 +1,37 @@
 const formEl = document.querySelector('.login-form');
-console.dir(formEl);
+const emailInp = document.querySelector('input[name="email"]');
+const passInp = document.querySelector('input[name="password"]');
+const submitBtn = document.querySelector('button[type="submit"]');
 
-formEl.addEventListener('submit', onSubmit)
+submitBtn.classList.add('form-submit-btn');
 
-function onSubmint(event) {
+formEl.addEventListener('submit', formSubmitHadler)
+
+function formSubmitHadler(event) {
     event.preventDefault();
 
-    const form = event.currentTarget;
-    console.dir(form);
+    const form = event.currentTarget.elements;
+    const email = form.email.value;
+    const password = form.password.value;
+    
+    if (!password || !email) return alert('All the fields should be filled!')
 
-    const email = form.elements.email.value;
-    console.log(form.elements.email.value);
+    const formDataObj = {
+        email,
+        password,
+    }
+    const formData = new FormData(event.currentTarget);
 
-    const password = form.elements.pasword.value;
-    console.log(form.elements.password.value);
+    formData.forEach((value, name) => {
+        const formDataCheck = {};
+
+        formDataCheck[name] = value;
+        console.log('Data inside FORM DATA CLASS', formDataCheck);
+    })
+    console.log('Object form data', formDataObj);
+    console.log('Class Form Data', formData);
+
+    formEl.reset();
 }
 
 

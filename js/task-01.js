@@ -1,15 +1,14 @@
-// const navEl = document.querySelector('ul#categories');
 
-// const firstNavItemEl = navEl.firstElementChild;
-// console.log(firstNavItemEl);
-// console.log(navEl.children);
-// console.log(navEl.lastElementChild);
 
-const list = document.querySelector('#categories');
-[...list.children].forEach(item => {       
-    console.log(item.firstElementChild); 
-    console.log(item.lastElementChild);
+const listEl = document.getElementById('categories');
+const listItems = listEl.children;
+
+console.log(`Number of categories: `, listEl.children.length);
+
+[...listItems].forEach(item =>        
+    console.log(`Category: ${item.firstElementChild.textContent}
+    Elements:`, item.lastElementChild.children.length)); 
+    
 
    
     
-} )
