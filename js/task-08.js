@@ -20,16 +20,16 @@ function formSubmitHadler(event) {
         email,
         password,
     }
-    const formData = new FormData(event.currentTarget);
+   const formData = new FormData(event.currentTarget);
 
     formData.forEach((value, name) => {
         const formDataCheck = {};
 
         formDataCheck[name] = value;
-        console.log('Data inside FORM DATA CLASS', formDataCheck);
+        //console.log('Data inside FORM DATA CLASS', formDataCheck);
     })
-    console.log('Object form data', formDataObj);
-    console.log('Class Form Data', formData);
+     console.log('Object form data', formDataObj);
+    // console.log('Class Form Data', formData);
 
     formEl.reset();
 }
