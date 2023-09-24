@@ -6,7 +6,11 @@ const ingredients = [
   'Herbs',
   'Condiments',
 ];
-const listEl = document.getElementById('ingredients');
+const listEl = document.querySelector('#ingredients');
 
-const newList = ingredients.map(el => `<li class='item'>${el}</li>`).join('');
-listEl.insertAdjacentHTML('beforeend', newList);
+ingredients.forEach((el) => {
+  const liEl = document.createElement('li');
+  liEl.classList.add('item');
+  liEl.textContent = `${el}`;
+  listEl.insertAdjacentElement('beforeend', liEl)
+});
